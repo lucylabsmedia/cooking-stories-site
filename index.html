@@ -81,6 +81,24 @@
       text-decoration: none;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--terracotta);
+    }
+
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -120,7 +138,7 @@
 
     .hero h1 {
       font-size: clamp(2.4rem, 5vw, 3.8rem);
-      max-width: 820px;
+      max-width: 840px;
       margin: 0 auto 20px;
     }
 
@@ -252,6 +270,86 @@
       font-size: 1rem;
     }
 
+    /* Pricing Section */
+    .pricing-section {
+      background: #FAF7F2;
+      padding: 80px 0;
+      border-top: 1px solid #EBE5DB;
+      border-bottom: 1px solid #EBE5DB;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid #ECE7DF;
+      border-radius: 24px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--terracotta);
+      transform: scale(1.02);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    .pricing-tier {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .pricing-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .pricing-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      min-height: 48px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--charcoal);
+    }
+
     /* Closed Beta VIP Block */
     .beta-section {
       background: #F9F5EE;
@@ -259,7 +357,7 @@
       border-radius: 28px;
       padding: 56px 40px;
       text-align: center;
-      margin: 20px 0 80px;
+      margin: 80px 0;
     }
 
     .beta-badge {
@@ -342,7 +440,11 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="logo">Cooking Stories</a>
-      <a href="#beta-testing" class="nav-cta">Join Closed Beta</a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#beta-testing" class="nav-cta">Join Closed Beta</a>
+      </div>
     </div>
   </header>
 
@@ -355,14 +457,14 @@
       
       <div class="hero-actions">
         <a href="#beta-testing" class="btn-primary">Become a Beta Tester</a>
-        <a href="#features" class="btn-secondary">Explore the Kitchen</a>
+        <a href="#pricing" class="btn-secondary">View Pricing</a>
       </div>
 
       <div class="trust-bar">
-        <span>✨ 100% Ad-Free Experience</span>
+        <span>✨ 100% Ad-Free Guarantee</span>
         <span>👓 "No-Squint" Large Typography</span>
         <span>📖 Real Tested Baking Recipes</span>
-        <span>⏱️ No Timers or Artificial Stress</span>
+        <span>⏱️ No Timers or Microtransactions</span>
       </div>
     </div>
   </section>
@@ -372,7 +474,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Designed for Comfort, Memory & Flavor</h2>
-        <p>No neon flashing lights, no ticking countdown clocks, and no predatory microtransactions. Just soothing puzzles and rewarding culinary crafts.</p>
+        <p>No neon flashing lights, no ticking countdown clocks, and no predatory energy bars. Just soothing puzzles and rewarding culinary crafts.</p>
       </div>
 
       <div class="grid-3">
@@ -385,13 +487,70 @@
         <div class="card">
           <div class="card-icon">🥞</div>
           <h3>Procedural Recipe Puzzles</h3>
-          <p>Progress through themed chapters unlocking pantry ingredients, baking equipment, and secret techniques. Complete the chapter to earn the full illustrated recipe card.</p>
+          <p>Progress through themed chapters unlocking pantry ingredients, baking equipment, and secret techniques. Complete each chapter to earn the full illustrated recipe card.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">📜</div>
           <h3>Printable Kitchen Keepsakes</h3>
-          <p>Your unlocked cards save permanently to your in-app Recipe Box. Export beautifully formatted, large-print PDF recipe cards and grocery checklists straight to your kitchen printer.</p>
+          <p>Your unlocked cards save permanently to your in-app Recipe Box. Export beautifully formatted, large-print PDF recipe cards and grocery checklists straight to your home printer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honest Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Simple, Honest Pricing</h2>
+        <p>No subscription traps. No forced video commercials. Pay once, own your cookbook forever.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Starter Tier -->
+        <div class="pricing-card">
+          <div class="pricing-tier">Starter Kitchen</div>
+          <div class="pricing-price">Free</div>
+          <div class="pricing-desc">Try the full game experience with zero commitment or payment required.</div>
+          <ul class="pricing-features">
+            <li>✓ Full Chapter 1 (10 Puzzles)</li>
+            <li>✓ Complete Heirloom Pancake Recipe</li>
+            <li>✓ 100% Ad-Free Gameplay</li>
+            <li>✓ Full Accessibility Controls</li>
+          </ul>
+          <a href="#beta-testing" class="btn-secondary" style="text-align: center;">Play for Free</a>
+        </div>
+
+        <!-- Lifetime Unlock (Featured) -->
+        <div class="pricing-card featured">
+          <div class="popular-tag">Most Popular</div>
+          <div class="pricing-tier">Lifetime Cookbook</div>
+          <div class="pricing-price">$3.99 <span>one-time</span></div>
+          <div class="pricing-desc">The complete standard game. Pay once and keep your digital cookbook forever.</div>
+          <ul class="pricing-features">
+            <li>✓ All 30 Chapters (300 Puzzles)</li>
+            <li>✓ 30 Tested Heirloom Recipe Cards</li>
+            <li>✓ In-App Recipe Box Access</li>
+            <li>✓ Zero Ads or In-Game Energy Meters</li>
+            <li>✓ Family Sharing Eligible</li>
+          </ul>
+          <a href="#beta-testing" class="btn-primary" style="text-align: center;">Get Lifetime Access</a>
+        </div>
+
+        <!-- Master Chef Tier -->
+        <div class="pricing-card">
+          <div class="pricing-tier">Master Chef Pass</div>
+          <div class="pricing-price">$9.99 <span>one-time</span></div>
+          <div class="pricing-desc">The all-inclusive collector's edition for passionate bakers and puzzle lovers.</div>
+          <ul class="pricing-features">
+            <li>✓ All 300 Core Levels + Recipe Cards</li>
+            <li>✓ All Future Thematic Expansion Packs</li>
+            <li>✓ Unlimited Printable PDF Recipe Cards</li>
+            <li>✓ Printable Grocery Checklist Exporter</li>
+            <li>✓ VIP Developer Kitchen Updates</li>
+          </ul>
+          <a href="#beta-testing" class="btn-secondary" style="text-align: center;">Explore Master Chef</a>
         </div>
       </div>
     </div>
@@ -402,20 +561,20 @@
     <div class="beta-section">
       <div class="beta-badge">Private Google Play Test</div>
       <h2>Help Shape the Recipe Box Before Launch</h2>
-      <p>We are hosting a private 14-day Closed Beta on Google Play. Testers receive instant, free access to all chapters and recipes while helping us fine-tune word legibility and game balance.</p>
+      <p>We are hosting a private 14-day Closed Beta on Google Play. Testers receive instant, 100% free access to all chapters and recipes while helping us fine-tune word legibility and game balance.</p>
 
       <div class="beta-steps">
         <div class="step-box">
           <div class="step-num">Step 1</div>
-          <p>Submit your Google Play account email via our private intake form so we can authorize your device.</p>
+          <p>Submit your Google Play email via our intake form so we can authorize your account.</p>
         </div>
         <div class="step-box">
           <div class="step-num">Step 2</div>
-          <p>Accept the private Google Play tester invite link delivered straight to your inbox.</p>
+          <p>Accept the private Google Play tester invite link delivered straight to your email.</p>
         </div>
         <div class="step-box">
           <div class="step-num">Step 3</div>
-          <p>Download the game, bake your way through Chapter 1, and let us know what you love!</p>
+          <p>Download the game, bake your way through Chapter 1, and share your thoughts!</p>
         </div>
       </div>
 
